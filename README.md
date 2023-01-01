@@ -18,7 +18,6 @@ To better understand what a constituent tree representation looks like, consider
 
 which can then be visualized into a desired format (here, plain-text):
 ```
-
                        S                                   
       _________________|_________________________________   
      |                          VP                       | 
@@ -50,7 +49,7 @@ or alternatively <a href="http://surdeanu.cs.arizona.edu/mihai/teaching/ista555-
 
 # Features
 - Easy-to-use construction of a constituent tree from a given sentence. 
-- Multilingual (currently supported languages: English, German, French, Polish, Swedish, Chinese and Korean).
+- Multilingual (currently seven languages are supported).
 - Convenient export of tree visualization to various file formats (currently supported file formats [.png, .jpg, .gif, .bmp, .pdf, .svg, .txt, .tex, .ps]).
 - Extraction of phrases according to given phrasal categories.
 
@@ -62,9 +61,20 @@ The easiest way to install CTL is to use pip. Here, you can choose between (1) t
 
 2 ```pip install git+https://github.com/Halvani/constituent_treelib.git ```
 
-[^2]: It's recommended to install CTL from PyPI (*Python Package Index*). However, if you want to benefit from the latest update of CTL, you should use this repository instead, since I will only update PyPi at irregular intervals.   
+[^2]: It's recommended to install CTL from <a href="https://pypi.org">PyPI</a> (*Python Package Index*). However, if you want to benefit from the latest update of CTL, you should use this repository instead, since I will only update PyPi at irregular intervals.   
 
 
+
+## Creating an NLP pipeline
+In order to construct a constituent tree, CTL relies on a spaCy-based NLP pipeline, which incorporates the *benepar* component. Although you can set up this pipeline yourself, it is recommended (and more convenient) to let CTL do it for you automatically via the ``create_pipeline()`` method. 
+
+Given the desired language, the method creates the nlp pipeline and also downloads the corresponding spaCy and benepar models, if requested. After the models have been downloaded, they are cached so that there are no redundant downloads when the method is called again.  
+
+Note that loading and initializing the models can take a while, so it makes sense to invoke ``create_pipeline()`` only once if you want to process multiple sentences. 
+
+
+## Available models and languages
+CTL currently supports seven languages: English, German, French, Polish, Swedish, Chinese and Korean. 
 
 
 
