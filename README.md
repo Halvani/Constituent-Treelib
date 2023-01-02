@@ -3,9 +3,11 @@ A lightweight Python library for processing and visualizing constituent trees.
 
 
 # Description
-CTL allows you to easily construct the <a>constituent tree</a> representation of sentences and to visualize the result into various formats. To parse sentences into constituent trees, CTL builds on top of the awesome **Berkeley Neural Parser** (or short: **benepar**) as well as both NLP frameworks spaCy and NLTK.   
+CTL allows you to easily construct a <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent tree</a> representation of sentences and to visualize them into various [formats](#Export_visualization). 
 
-To better understand what a constituent tree representation looks like, consider the following example.  Given the sentence *S* = ``The bridge was unfinished when it collapsed.``, CTL first constructs the corresponding constituent tree of *S* in a *Penn tree-bank* style    
+In order to construct constituent trees, CTL builds on top of <a href="https://github.com/nikitakit/self-attentive-parser">**benepar**</a> (*Berkeley Neural Parser*) as well as both well-known NLP frameworks <a href="https://spacy.io">**spaCy**</a> and <a href="https://github.com/nltk/nltk">**NLTK**</a>. Here, spaCy is used only for tokenization and sentence segmentation, while benepar performs the actual parsing of the sentences. NLTK, on the other hand, is needed as it provides the fundamental data structure for the parsed sentences. 
+
+To gain a clearer picture of what a constituent tree looks like, let's consider the following example. Given the sentence *S* = ``The bridge was unfinished when it collapsed.``, CTL first parses *S* into a bracketed tree representation (in a <a href="https://catalog.ldc.upenn.edu/LDC99T42">*Penn tree-bank*</a> style) that leads to the following result:   
 ```
 (S
   (NP (DT The) (NN bridge))
@@ -16,8 +18,8 @@ To better understand what a constituent tree representation looks like, consider
   (. .))
 ```
 
-which can then be visualized into a desired format (here, plain-text):
-```
+This bracketed tree string can then be visualized as a constituent tree in a desired format, here as a SVG file:
+![
                        S                                   
       _________________|_________________________________   
      |                          VP                       | 
@@ -30,32 +32,38 @@ which can then be visualized into a desired format (here, plain-text):
   ___|____      |      |        |     |           |      |  
  DT       NN   VBD     JJ      WRB   PRP         VBD     . 
  |        |     |      |        |     |           |      |  
-The     bridge was unfinished  when   it      collapsed  . 
-```
+The     bridge was unfinished  when   it      collapsed  .](assets/images/sample_tree.svg)
+
 
 This representation[^1] shows three aspects of the structure of *S*: 
 - Linear order of the words and their part-of-speech in *S* (from left to right: ``The_DT``, ``bridge_NN``, ``was_VBD``, ...)
-- The groupings of the words and their part-of-speech into phrases (from left to right: ``NP``, ``ADJP``, ``WHADVP``, ``NP``, ``VP``)
-- The hierarchical structure of the phrases (from left to right: ``S``, ``VP``, ``SBAR``, ``S``)
+- Groupings of the words and their part-of-speech into phrases (from left to right: ``NP``, ``ADJP``, ``WHADVP``, ``NP``, ``VP``)
+- Hierarchical structure of the phrases (from left to right: ``S``, ``VP``, ``SBAR``, ``S``)
 
-[^1]: Note, if you are not familiar with these so-called bracket labels, 
+[^1]: Note, if you are not familiar with the bracket labels of constituent trees, 
 have a look at the following <a href="https://gist.github.com/nlothian/9240750">Gist</a> 
 or alternatively <a href="http://surdeanu.cs.arizona.edu/mihai/teaching/ista555-fall13/readings/PennTreebankConstituents.html">this website</a>.
 
 
 
+# Applications
+Constituent trees offer a broad range of applications such as: 
+- Analysis and comparison of sentence structures between different languages (e.g. English and German) for language learners
+- Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">information extraction</a> or <a href="https://aclanthology.org/P12-2034">deception detection</a>)
+- Use the resulting representations as a prestep to train GNNs for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">chemical–drug relation extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">semantic role labeling</a>)
 
 
 
 # Features
-- Easy-to-use construction of a constituent tree from a given sentence. 
-- Multilingual (currently seven languages are supported).
-- Convenient export of tree visualization to various file formats (currently supported file formats [.png, .jpg, .gif, .bmp, .pdf, .svg, .txt, .tex, .ps]).
-- Extraction of phrases according to given phrasal categories.
+- Easy-to-use construction of a constituent tree from a given sentence
+- Multilingual (currently CTL supports [seven languages](#Available_models_and_languages))
+- Convenient export of tree visualization to various file [formats](#Export_visualization)
+- Extraction of phrases according to given phrasal categories
+- Extensively documented source code
 
 
 # Installation
-The easiest way to install CTL is to use pip. Here, you can choose between (1) the PyPI[^2] repository and (2) this repository. 
+The easiest way to install CTL is to use pip, where you can choose between (1) the PyPI[^2] repository and (2) this repository. 
 
 1 ```TODO```
 
@@ -73,12 +81,13 @@ Given the desired language, the method creates the nlp pipeline and also downloa
 Note that loading and initializing the models can take a while, so it makes sense to invoke ``create_pipeline()`` only once if you want to process multiple sentences. 
 
 
+<a name="Available_models_and_languages"></a>
 ## Available models and languages
 CTL currently supports seven languages: English, German, French, Polish, Swedish, Chinese and Korean. 
 
 
 
-
+<a name="Export_visualization"></a>
 ## Export visualization
 In order to export the visualization of the parsed constituent tree you can choose among various file formats (currently supported: [.png, .jpg, .gif, .bmp, .pdf, .svg, .txt, .tex, .ps]). 
 
@@ -93,3 +102,8 @@ To export the parsed tree into a rasterized image format, the open-source softwa
 
 # License
 The code and the jupyter notebook demo of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
+
+
+
+# Citation
+TODO...
