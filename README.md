@@ -39,6 +39,9 @@ Constituent trees offer a wide range of applications, such as:
 - Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">information extraction</a> or <a href="https://aclanthology.org/P12-2034">deception detection</a>)
 - Use the resulting representations as a prestep to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">chemical–drug relation extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">semantic role labeling</a>)
 
+<a href="- Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">Stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">Information Extraction</a>, <a href="https://aclanthology.org/P12-2034">Deception Detection</a> or <a href="">Natural Language Watermarking</a>)
+- Use the resulting representations as a prestep to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">chemical–drug relation extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">semantic role labeling</a>)
+
 
 # Features
 - Easy construction of constituent trees from raw sentences
