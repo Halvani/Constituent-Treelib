@@ -32,15 +32,11 @@ This representation[^1] shows three aspects of the structure of *S*:
 - Hierarchical structure of the phrases (from left to right: ``S``, ``VP``, ``SBAR``, ``S``)
 
 
-
 # Applications
 Constituent trees offer a wide range of applications, such as:
 - Analysis and comparison of sentence structures between different languages (e.g. English and German) for language learners
-- Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">information extraction</a> or <a href="https://aclanthology.org/P12-2034">deception detection</a>)
-- Use the resulting representations as a prestep to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">chemical–drug relation extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">semantic role labeling</a>)
-
-<a href="- Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">Stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">Information Extraction</a>, <a href="https://aclanthology.org/P12-2034">Deception Detection</a> or <a href="">Natural Language Watermarking</a>)
-- Use the resulting representations as a prestep to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">chemical–drug relation extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">semantic role labeling</a>)
+- Extracting phrasal features for certain NLP tasks (e.g., <a href="https://github.com/andreasvc/authident">Stylometry</a>, <a href="https://ieeexplore.ieee.org/document/6693511">Information Extraction</a>, <a href="https://aclanthology.org/P12-2034">Deception Detection</a> or <a href="https://dl.acm.org/doi/10.1145/2482513.2482522">Natural Language Watermarking</a>)
+- Use the resulting representations as a prestep to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">Chemical–Drug Relation Extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">Semantic Role Labeling</a>)
 
 
 # Features
