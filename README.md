@@ -76,17 +76,36 @@ Note that loading and initializing the models can take a while, so it makes sens
 CTL currently supports seven languages: English, German, French, Polish, Swedish, Chinese and Korean. 
 
 
-
 <a name="Export_visualization"></a>
 ## Export visualization
-In order to export the visualization of the parsed constituent tree you can choose among various file formats (currently supported: [.png, .jpg, .gif, .bmp, .pdf, .svg, .txt, .tex, .ps]). 
+CTL offers you the possibility to export the constructed constituent tree to the following file formats:
 
-### Export into PDF
-To export the parsed tree into a PDF the open source (LGPLv3) command line tool **<a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a>** is required. Once downloaded and installed, you need to pass CTL the respective path to the wkhtmltopdf binary.
+| Extension | Description | Output |
+| --- | --- | --- |
+| **PDF** | *Portable Document Format* | Vector graphic |
+| **SVG** | *Scalable Vector Graphics* | Vector graphic |
+| **EPS** | *Encapsulated PostScript* | Vector graphic |
+| **JPG** | *Joint Photographic Experts Group* | Raster image |
+| **PNG** | *Portable Network Graphics* | Raster image |
+| **GIF** | *Graphics Interchange Format* | Raster image |
+| **BMP** | *Bitmap* | Raster image |
+| **PSD** | *Photoshop Document* | Raster image |
+| **TIFF** | *Tagged Image File Format* | Raster image |
+| **JSON** | *JavaScript Object Notation* | Data exchange format |
+| **YAML** | *Yet Another Markup Language* | Data exchange format |
+| **TXT** | *Plain-Text* | Pretty-print tree visualization |
+| **TEX** | *LaTeX-Document* | LaTeX-typesetted tree |
 
-### Export into JPG, PNG, GIF, BMP
+To export the constituent tree into a **PDF** the <a href="https://github.com/wkhtmltopdf/wkhtmltopdf/blob/master/LICENSE">open-source</a> command line tool **<a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a>** is required. Once downloaded and installed, you need to pass CTL the respective path to the wkhtmltopdf binary: 
+
+
+ 
+
+
+### Export into JPG, PNG, GIF, BMP, EPS, PSD, TIFF, YAML
 To export the parsed tree into a rasterized image format, the <a href="https://imagemagick.org/script/license.php">open-source</a> software suite 
 **<a href="https://imagemagick.org/script/download.php#windows">ImageMagick</a>** is required. 
+
 
 
 # License
@@ -95,14 +114,21 @@ The code and the jupyter notebook demo of CTL are released under the MIT License
 
 
 # Citation
-TODO...
-
-
+If you find this repository helpful, feel free to cite it in your paper or project: 
+```bibtex
+@misc{HalvaniConstituentTreelib:2023,
+    title={{A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees}},
+    author={Oren Halvani},
+    year={2023},
+    publisher = {GitHub},
+    howpublished = {\url{https://github.com/Halvani/constituent_treelib}}
+}
+```
 
 [^1]: Note, if you are not familiar with the bracket labels of constituent trees, 
 have a look at the following <a href="https://gist.github.com/nlothian/9240750">Gist</a> 
 or alternatively <a href="http://surdeanu.cs.arizona.edu/mihai/teaching/ista555-fall13/readings/PennTreebankConstituents.html">this website</a>. 
 
-[^2]: It's recommended to install CTL from <a href="https://pypi.org">PyPI</a> (*Python Package Index*). However, if you want to benefit from the latest update of CTL, you should use this repository instead, since I will only update PyPi at irregular intervals.   
+[^2]: It's recommended to install CTL from <a href="https://pypi.org">PyPI</a> (*Python Package Index*). However, if you want to benefit from the latest update of CTL, you should use this repository instead, since I will only update PyPi at irregular intervals. 
 
-[^3]: After the models have been downloaded, they are cached so that there are no redundant downloads when the method is called again. 
+[^3]: After the models have been downloaded, they are cached so that there are no redundant downloads when the method is called again.
