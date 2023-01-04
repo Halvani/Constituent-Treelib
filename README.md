@@ -78,7 +78,7 @@ nlp = ConstituentTree.create_pipeline(language, spacy_model_size, download_model
 ```
 
 ## Define a sentence
-Now we can instantiate a ``ConstituentTree`` object and pass it the NLP pipeline along with a sentence, for example the memorable quote *"You must construct additional pylons"*[^4]. Rather than a raw sentence, ``ConstituentTree`` also accepts an already parsed  sentence in a bracketed tree notation, or alternatively in the form of an NLTK tree. The following example illustrates all three options:  
+Now we can instantiate a ``ConstituentTree`` object and pass it the NLP pipeline along with a sentence, for example the memorable quote *"You must construct additional pylons!"*[^4]. Rather than a raw sentence, ``ConstituentTree`` also accepts an already parsed  sentence in a bracketed tree notation, or alternatively in the form of an NLTK tree. The following example illustrates all three options:  
 ```python
 from nltk import Tree
 
@@ -86,7 +86,7 @@ from nltk import Tree
 sentence = 'You must construct additional pylons!'
 
 # Parsed sentence in a bracketed tree notation
-'(S (NP (PRP You)) (VP (MD must) (VP (VB construct) (NP (JJ additional) (NNS pylons)))) (. !))'
+sentence = '(S (NP (PRP You)) (VP (MD must) (VP (VB construct) (NP (JJ additional) (NNS pylons)))) (. !))'
 
 # Parsed sentence in the form of an NLTK tree
 sentence = Tree('S', [Tree('NP', [Tree('PRP', ['You'])]), Tree('VP', [Tree('MD', ['must']), Tree('VP', [Tree('VB', ['construct']), Tree('NP', [Tree('JJ', ['additional']), Tree('NNS', ['pylons'])])])]), Tree('.', ['!'])])
@@ -132,7 +132,7 @@ print(phrases['VP'])
 
 <a name="Export_visualization"></a>
 ## Export the tree
-CTL offers you the possibility to export the constructed constituent tree into different file formats, which are listed below. Most of these formats represent a visualization of the tree, while the remaining file formats are for data exchange purposes. 
+CTL offers you the possibility to export the constructed constituent tree into various file formats, which are listed below. Most of these formats result in a visualization of the tree, while the remaining file formats are used for data exchange. 
 
 | Extension | Description | Output |
 | --- | --- | --- |
