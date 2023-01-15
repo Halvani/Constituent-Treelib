@@ -106,7 +106,7 @@ tree = ConstituentTree(sentence, nlp)
 ```
 
 ## Extract phrases
-Once we have created ``tree``, we can now extract phrases according to given phrasal categories e.g., verb phrases:  
+Once we have created ``tree``, we can now extract phrases according to given <a href="https://dkpro.github.io/dkpro-core/releases/2.2.0/docs/tagset-reference.html">phrasal categories</a> e.g., verb phrases:  
 ```python
 phrases = tree.extract_all_phrases()
 print(phrases['VP'])
@@ -151,7 +151,7 @@ tree.export_tree(destination_filepath='my_tree.pdf', verbose=True)
 >>> PDF - file successfully saved to: my_tree.pdf
 ```
 
-Note, in case of any raster/vector image format, the resulting visualization will be cropped with respect to unnecessary margins. This is particularly useful if the visualizations are to be used in papers. Another way to save space is to shrink the tree by removing internal postag nodes, which can be accomplished as follows: 
+Note, in case of any raster/vector image format, the resulting visualization will be cropped with respect to unnecessary margins. This is particularly useful if the visualizations are to be used in papers. An additional possibility to save space is to shrink the tree by removing internal postag nodes. This can be accomplished as follows: 
 
 ```python
 tree_compact = ConstituentTree(sentence, nlp, remove_postag_nodes=True) 
