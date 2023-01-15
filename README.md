@@ -19,7 +19,7 @@ CTL first parses *S* into a so-called *bracketed tree string* representation (sh
   (. .))
 ```
 
-This string represents the actual constituent tree, which can then be visualized and exported to a desired format, here for instance as a <a href="https://github.com/Halvani/constituent_treelib/assets/images/sample_tree.png">PNG</a> file:
+This string represents the actual constituent tree, which can then be visualized and exported to a desired format, here for instance as a <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/assets/images/sample_tree.png">PNG</a> file:
 
 ![(S
   (NP (NNP Stanley) (NNP Getz))
@@ -66,7 +66,7 @@ The latter command will pull and install the latest commit from this repository 
 
 
 # Quickstart
-Below you can find several examples of the core functionality of CTL. More examples can be found in the <a href="https://github.com/Halvani/constituent_treelib/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a>. 
+Below you can find several examples of the core functionality of CTL. More examples can be found in the <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a>. 
 
 
 ## Creating an NLP pipeline
@@ -168,7 +168,7 @@ CTL currently supports eight languages: English, German, French, Polish, Hungari
 
 
 # License
-The code and the <a href="https://github.com/Halvani/constituent_treelib/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a> of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
+The code and the <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a> of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
 
 
 # Citation
