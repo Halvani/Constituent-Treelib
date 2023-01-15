@@ -3,13 +3,11 @@ A lightweight Python library for constructing, processing, and visualizing const
 
 
 # Description
-CTL allows you to easily construct a <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent tree</a> representation of sentences, visualize them and export them into various [file formats](#Export_visualization). Moreover, you can conveniently extract phrases according to their phrasal categories, which can then be used as features for a variety of NLP tasks. 
+CTL allows you to easily construct a <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent tree</a> representation of sentences, visualize them and export them into various [file formats](#Export_visualization). Moreover, you can conveniently extract phrases according to their phrasal categories, which can be used, for example, as features for various NLP tasks. 
 
 CTL is built on top of <a href="https://github.com/nikitakit/self-attentive-parser">**benepar**</a> (*Berkeley Neural Parser*) as well as the two well-known NLP frameworks <a href="https://spacy.io">**spaCy**</a> and <a href="https://github.com/nltk/nltk">**NLTK**</a>. Here, spaCy is used for tokenization and sentence segmentation, while benepar performs the actual parsing of the sentences. NLTK, on the other hand, provides the fundamental data structure for storing and processing the parsed sentences. 
 
-To gain a clearer picture of what a constituent tree looks like, let's consider the following example. 
-Given the sentence *S = "Stanley Getz was an American jazz saxophonist."* 
-CTL first parses *S* into a so-called *bracketed tree string* representation (shown below in a <a href="https://catalog.ldc.upenn.edu/LDC99T42">*Penn tree-bank*</a> style):   
+To gain a clearer picture of what a constituent tree looks like, consider the following example. Given the sentence *S = "Stanley Getz was an American jazz saxophonist."* CTL first parses *S* into a so-called *bracketed tree string* representation (shown below in a <a href="https://catalog.ldc.upenn.edu/LDC99T42">*Penn tree-bank*</a> style):   
 ```
 (S
   (NP (NNP Stanley) (NNP Getz))
@@ -21,12 +19,17 @@ CTL first parses *S* into a so-called *bracketed tree string* representation (sh
 
 This string represents the actual constituent tree, which can then be visualized and exported to a desired format, here for instance as a <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/assets/images/sample_tree.png">PNG</a> file:
 
-![(S
+<center>
+<div>
+  <img src="https://github.com/Halvani/Constituent-Treelib/raw/main/assets/images/sample_tree.png" alt="(S
   (NP (NNP Stanley) (NNP Getz))
   (VP
     (VBD was)
     (NP (DT an) (JJ American) (NN jazz) (NN saxophonist)))
-  (. .))](assets/images/sample_tree.png)
+  (. .))" width=90% height=90% class="center">
+</div>
+<br>
+</center>
 
 This representation[^1] shows three aspects of the structure of *S*: 
 - Linear order of the words and their part-of-speech: ``NNP = Stanley``, ``NNP = Getz``, ``VBD = was``, ...
@@ -45,10 +48,10 @@ Constituent trees offer a wide range of applications, such as:
 - Easy construction of constituent trees from raw (or already processed) sentences
 - Multilingual (currently CTL supports [eight languages](#Available_models_and_languages))
 - Convenient export of tree visualizations to various [file formats](#Export_visualization)
-- Extraction of phrases according to given <a href="https://dkpro.github.io/dkpro-core/releases/2.2.0/docs/tagset-reference.html">phrasal categories</a>
-- Automatic setup of the necessary NLP pipeline, which downloads and installs the models automatically on demand
+- Extraction of phrases according to their <a href="https://dkpro.github.io/dkpro-core/releases/2.2.0/docs/tagset-reference.html">phrasal categories</a>
+- Automatic setup of the necessary NLP pipeline (loads and installs the benepar and spaCy models on demand)
+- No API dependency (after downloading the models CTL can be used completely offline)
 - Extensively documented source code
-- No API dependency (CTL can be used completely offline)
 
 
 # Installation
@@ -143,7 +146,7 @@ CTL offers you the possibility to export the constructed constituent tree into v
 | **TXT** | *Plain-Text* | Pretty-print text visualization|
 | **TEX** | *LaTeX-Document* | LaTeX-typesetting |
 
-The following example shows an export the tree into a PDF file:
+The following example shows an export of the tree into a PDF file:
 
 ```python
 tree.export_tree(destination_filepath='my_tree.pdf', verbose=True)
@@ -157,7 +160,7 @@ Note, in case of any raster/vector image format, the resulting visualization wil
 tree_compact = ConstituentTree(sentence, nlp, remove_postag_nodes=True) 
 ```
  
-As a result, the tree can be reduced from 5 levels to 4:
+As a result, the tree height can be reduced from 5 levels to 4:
 
 ![(S (NP You) (VP must (VP construct (NP additional pylons))) !)](assets/images/compact_tree.png)
  
