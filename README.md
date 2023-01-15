@@ -65,8 +65,8 @@ The latter command will pull and install the latest commit from this repository 
 2 To export the constituent tree into the file formats JPG, PNG, GIF, BMP, EPS, PSD, TIFF and YAML, the software suite **<a href="https://imagemagick.org/script/download.php#windows">ImageMagick</a>** is required.
 
 
-# Quick start
-Below you can find several examples of the core functionality of CTL.
+# Quickstart
+Below you can find several examples of the core functionality of CTL. More examples can be found in the <a href="https://github.com/Halvani/constituent_treelib/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a>. 
 
 
 ## Creating an NLP pipeline
@@ -159,16 +159,16 @@ tree_compact = ConstituentTree(sentence, nlp, remove_postag_nodes=True)
  
 As a result, the tree can be reduced from 5 levels to 4:
 
-
-
-
+![(S (NP You) (VP must (VP construct (NP additional pylons))) !)](assets/images/compact_tree.png)
+ 
 
 <a name="Available_models_and_languages"></a>
 ## Available models and languages
-CTL currently supports eight languages: English, German, French, Polish, Swedish, Chinese and Korean. 
+CTL currently supports eight languages: English, German, French, Polish, Hungarian, Swedish, Chinese and Korean. The performance of the respective models can be looked up in the <a href="https://github.com/nikitakit/self-attentive-parser#available-models">benepar repository</a>. 
+
 
 # License
-The code and the jupyter notebook demo of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
+The code and the <a href="https://github.com/Halvani/constituent_treelib/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a> of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
 
 
 # Citation
@@ -182,6 +182,8 @@ If you find this repository helpful, feel free to cite it in your paper or proje
     howpublished = {\url{https://github.com/Halvani/constituent_treelib}}
 }
 ```
+Please also give credit to the authors of benepar and <a href="https://github.com/nikitakit/self-attentive-parser#citation">cite their work</a>.
+
 
 [^1]: Note, if you are not familiar with the bracket labels of constituent trees, 
 have a look at the following <a href="https://gist.github.com/nlothian/9240750">Gist</a> 
