@@ -1,5 +1,4 @@
 import re
-import torch
 import spacy
 import huspacy
 import benepar
