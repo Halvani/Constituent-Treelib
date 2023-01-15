@@ -54,7 +54,7 @@ Constituent trees offer a wide range of applications, such as:
 # Installation
 The easiest way to install CTL is to use pip, where you can choose between (1) the PyPI[^2] repository and (2) this repository. 
 
-1 ```TODO```
+1 ```pip install constituent-treelib```
 
 2 ```pip install git+https://github.com/Halvani/constituent_treelib.git ```
 
