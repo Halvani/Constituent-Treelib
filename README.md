@@ -112,6 +112,13 @@ tree = ConstituentTree(sentence, nlp)
 Once we have created ``tree``, we can now extract phrases according to given <a href="https://dkpro.github.io/dkpro-core/releases/2.2.0/docs/tagset-reference.html">phrasal categories</a> e.g., verb phrases:  
 ```python
 phrases = tree.extract_all_phrases()
+print(phrases)
+
+>>> {'S': ['You must construct additional pylons !'],
+>>>  'VP': ['must construct additional pylons', 'construct additional pylons'],
+>>>  'NP': ['additional pylons']}
+
+# Only verb phrases..
 print(phrases['VP'])
 
 >>> ['must construct additional pylons', 'construct additional pylons']
@@ -119,8 +126,8 @@ print(phrases['VP'])
 
 As can be seen here, the second verb phrase is contained in the former. To avoid this, we can instruct the method to disregard nested phrases:  
 ```python
-phrases = tree.extract_all_phrases(avoid_nested_phrases=True)
-print(phrases['VP'])
+non_nested_phrases = tree.extract_all_phrases(avoid_nested_phrases=True)
+print(non_nested_phrases['VP'])
 
 >>> ['must construct additional pylons']
 ```
