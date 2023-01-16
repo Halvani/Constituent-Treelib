@@ -178,7 +178,7 @@ The code and the <a href="https://github.com/Halvani/Constituent-Treelib/blob/ma
 If you find this repository helpful, feel free to cite it in your paper or project: 
 ```bibtex
 @misc{HalvaniConstituentTreelib:2023,
-    title={{A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees}},
+    title={{Constituent Treelib: A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees}},
     author={Oren Halvani},
     year={2023},
     publisher = {GitHub},
