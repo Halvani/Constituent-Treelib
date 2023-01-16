@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this library, please cite it as below."
+authors:
+  - family-names: Halvani
+    given-names: Oren
+	orcid: "https://orcid.org/0000-0002-1460-9373"		
+title: "Constituent Treelib - A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees."
+version: 0.0.4
+doi: 10.5281/zenodo.7542311
+date-released: 2022-01-15
+url: "https://github.com/Halvani/constituent-treelib"
