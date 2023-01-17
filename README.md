@@ -161,7 +161,7 @@ tree.export_tree(destination_filepath='my_tree.pdf', verbose=True)
 >>> PDF - file successfully saved to: my_tree.pdf
 ```
 
-Note, in case of any raster/vector image format, the resulting visualization will be cropped with respect to unnecessary margins. This is particularly useful if the visualizations are to be used in papers. An additional possibility to save space is to shrink the tree by removing internal postag nodes. This can be accomplished as follows: 
+In the case of raster/vector images, CTL automatically removes unnecessary margins with respect to the resulting visualizations. This is particularly useful if the visualizations are to be used in papers. An additional possibility to save space is to shrink the tree by removing internal postag nodes. This can be accomplished as follows: 
 
 ```python
 tree_compact = ConstituentTree(sentence, nlp, remove_postag_nodes=True) 
@@ -184,14 +184,14 @@ The code and the <a href="https://github.com/Halvani/Constituent-Treelib/blob/ma
 # Citation
 If you find this repository helpful, feel free to cite it in your paper or project: 
 ```bibtex
-	@software{Halvani_Constituent_Treelib_-_2022,
-	author = {Halvani, Oren},
-	doi = {10.5281/zenodo.7542311},
-	month = {1},
-	title = {{Constituent Treelib - A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees.}},
-	url = {https://github.com/Halvani/constituent-treelib},
-	version = {0.0.4},
-	year = {2022}
+@software{Halvani_Constituent_Treelib_-_2023,
+author = {Halvani, Oren},
+doi = {10.5281/zenodo.7542311},
+month = {1},
+title = {{Constituent Treelib - A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees.}},
+url = {https://github.com/Halvani/constituent-treelib},
+version = {0.0.4},
+year = {2023}
 }
 ```
 Please also give credit to the authors of benepar and <a href="https://github.com/nikitakit/self-attentive-parser#citation">cite their work</a>.
