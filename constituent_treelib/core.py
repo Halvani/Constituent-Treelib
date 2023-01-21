@@ -272,6 +272,14 @@ class ConstituentTree:
         """
         return self.to_bracketed_tree_string(**kwargs, pretty_print=True)
 
+    def _repr_svg_(self) -> str:
+        """Visualizes the tree in Jupyter by calling the rich display format '_repr_svg_' of the internal nltk_tree.
+
+        Returns:
+            Raw SVG data of the tree as a string.
+        """
+        return self.nltk_tree._repr_svg_()
+
     @staticmethod
     def create_pipeline(language: Language = Language.English, spacy_model_size: SpacyModelSize = SpacyModelSize.Small,
                         benepar_english_model: BeneparEnglishModel = BeneparEnglishModel.EN3,
