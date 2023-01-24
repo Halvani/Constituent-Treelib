@@ -54,6 +54,14 @@ Constituent trees offer a wide range of applications, such as:
 - Extensively documented source code
 
 
+# No Code Demo
+In case you just want to play around with CTL, there is a minimally functional <a href="https://github.com/streamlit/streamlit">Streamlit</a> application that will be gradually extended. 
+
+To run the demo, please first install Streamlit via `pip install streamlit`. 
+
+Afterwards, you can call the app from the command line as follows: `streamlit run ctl_app.py`
+
+
 # Installation
 The easiest way to install CTL is to use pip, where you can choose between (1) the PyPI[^2] repository and (2) this repository. 
 
