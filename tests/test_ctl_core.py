@@ -2,7 +2,16 @@ import torch
 import spacy
 import hashlib
 from nltk import Tree
-from pathlib import Path
+
+import os
+import sys
+import inspect
+
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir) 
+
+
 from constituent_treelib import ConstituentTree
 
 
@@ -27,3 +36,4 @@ def test_svg_export():
     with open(file_name, 'rb') as file:
         md5_hash = hashlib.md5(file.read()).hexdigest()    
     assert md5_hash == "75cdbbeda69e84df53b6d07428e54244"
+    os.remove(file_name)
