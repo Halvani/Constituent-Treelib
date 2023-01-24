@@ -16,13 +16,13 @@ from constituent_treelib import ConstituentTree
 
 
 def test_benepar_integration():
-    nlp = ConstituentTree.create_pipeline() 
+    nlp = ConstituentTree.create_pipeline(download_models=True) 
     assert 'benepar' in nlp.component_names
 
 
 def test_bracketed_tree_string():
     sentence = "I love cakes and cookies!"
-    nlp = ConstituentTree.create_pipeline() 
+    nlp = ConstituentTree.create_pipeline(download_models=True) 
     tree = ConstituentTree(sentence, nlp)
     assert tree.to_bracketed_tree_string() == '(S (NP (PRP I)) (VP (VBP love) (NP (NNS cakes) (CC and) (NNS cookies))) (. !))'
 
@@ -30,7 +30,7 @@ def test_bracketed_tree_string():
 def test_svg_export():
     file_name = "tree.svg"
     sentence = "Python is an awesome coding language!"
-    nlp = ConstituentTree.create_pipeline()
+    nlp = ConstituentTree.create_pipeline(download_models=True)
     tree = ConstituentTree(sentence, nlp)    
     tree.export_tree(file_name)
     with open(file_name, 'rb') as file:
