@@ -7,9 +7,10 @@ from pathlib import Path
 from nltk import Tree
 from nltk.draw.tree import TreeView
 from nltk.tree.prettyprinter import TreePrettyPrinter
+from typing import Dict
 
 
-def __to_dict(tree: Tree) -> dict[str, str]:
+def __to_dict(tree: Tree) -> Dict[str, str]:
     """Transforms the given tree into a nested dictionary.
 
     Args:
