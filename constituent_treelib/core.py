@@ -5,7 +5,10 @@ import benepar
 from enum import Enum, auto
 from typing import Union
 from nltk import Tree
+import nltk
 from .export import export_figure
+from typing import List, Dict, Set
+from pathlib import Path
 
 
 class BracketedTree:
@@ -104,7 +107,7 @@ class BracketedTree:
         return bracketed_tree_string
 
     @staticmethod
-    def parentheses_locations(bracketed_tree_string: str) -> dict[int, int]:
+    def parentheses_locations(bracketed_tree_string: str) -> Dict[int, int]:
         """Validates that for each opening parenthesis in the given bracketed tree string there is a corresponding
         closing parenthesis. If this is not the case appropriate exceptions are raised.
 
@@ -272,18 +275,10 @@ class ConstituentTree:
         """
         return self.to_bracketed_tree_string(**kwargs, pretty_print=True)
 
-    def _repr_svg_(self) -> str:
-        """Visualizes the tree in Jupyter by calling the rich display format '_repr_svg_' of the internal nltk_tree.
-
-        Returns:
-            Raw SVG data of the tree as a string.
-        """
-        return self.nltk_tree._repr_svg_()
-
     @staticmethod
     def create_pipeline(language: Language = Language.English, spacy_model_size: SpacyModelSize = SpacyModelSize.Small,
                         benepar_english_model: BeneparEnglishModel = BeneparEnglishModel.EN3,
-                        download_models: bool = False) -> spacy.Language:
+                        download_models: bool = True) -> spacy.Language:
         """Constructs the fundamental nlp pipeline for the given language that consists of a spaCy pipeline that
         incorporates the benepar component.
 
@@ -316,11 +311,18 @@ class ConstituentTree:
         """
 
         def download(spacy_model_id: str, benepar_model_id: str) -> None:
+            download_dir = Path(__file__).parent / Path(".resources")
+            download_dir.mkdir(parents=True, exist_ok=True)
+            if not str(download_dir) in nltk.data.path:
+                nltk.data.path.append(str(download_dir))
             if language == ConstituentTree.Language.Hungarian:
                 huspacy.download(spacy_model_id)
             else:
-                spacy.cli.download(spacy_model_id)
-            benepar.download(benepar_model_id)
+                if not spacy.util.is_package(spacy_model_id):
+                    print(f"'{spacy_model_id}' not found. Downloading...")
+                    spacy.cli.download(spacy_model_id, False, False, "--quiet")
+            benepar.download(benepar_model_id, download_dir=download_dir, quiet=True)
+
 
         def err_models_not_downloaded(model_id: str, framework: str, error_trace: str) -> str:
             return f'It seems that the specified model "{model_id}" has not been downloaded or installed yet.\n' \
@@ -459,7 +461,7 @@ class ConstituentTree:
         except LookupError as e:
             print(err_models_not_downloaded(model_id=benepar_model, framework='benepar', error_trace=e))
 
-    def _extract_phrases(self, tree: Tree, phrasal_category: str, min_words_in_phrases: int = 2) -> list[list]:
+    def _extract_phrases(self, tree: Tree, phrasal_category: str, min_words_in_phrases: int = 2) -> List[list]:
         """Extracts phrases according to a given phrasal category from an nltk.Tree in a recursive manner.
 
         Args:
@@ -512,7 +514,7 @@ class ConstituentTree:
         elif content_type == self.NodeContent.Combined:
             return ' '.join([f'{w[0]}_{w[1]}' for w in tree.pos()])
 
-    def extract_all_phrasal_categories(self) -> set[str]:
+    def extract_all_phrasal_categories(self) -> Set[str]:
         """Extracts all available phrasal categories in the tree.
 
         Returns:
@@ -522,7 +524,7 @@ class ConstituentTree:
         return set([str(p.lhs()) for p in self.nltk_tree.productions() if p.is_nonlexical() and p.lhs()])
 
     def extract_all_phrases(self, min_words_in_phrases: int = 2, avoid_nested_phrases: bool = False,
-                            content: NodeContent = NodeContent.Text) -> dict[str, list[str]]:
+                            content: NodeContent = NodeContent.Text) -> Dict[str, List[str]]:
         """Extracts all phrases from the tree and the categories they belong to.
 
         Args:
