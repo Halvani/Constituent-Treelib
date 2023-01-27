@@ -24,9 +24,8 @@ dependencies = [
     "spacy==3.4.1",	
     "Wand==0.6.10",
     "tokenizers==0.9.4",
-    "transformers[torch,tokenizers]==4.2.2",
-    "protobuf==3.20.3",
-    "sentencepiece==0.1.91"
+    "transformers[torch]==4.2.2",
+    "protobuf==3.20.3"
 ]
 keywords = [
     "constituency-tree",
