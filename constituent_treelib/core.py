@@ -3,12 +3,11 @@ import spacy
 import huspacy
 import benepar
 from enum import Enum, auto
-from typing import Union
-from nltk import Tree
 import nltk
-from .export import export_figure
-from typing import List, Dict, Set
+from nltk import Tree
+from typing import List, Dict, Set, Union
 from pathlib import Path
+from .export import export_figure
 
 
 class BracketedTree:
