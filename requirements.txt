@@ -1,7 +1,6 @@
 benepar==0.2.0
 contractions
 fasttext
-fasttext_win
 huspacy
 nltk
 pdfkit
