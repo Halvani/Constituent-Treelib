@@ -8,7 +8,7 @@ pdfkit
 pytest
 spacy
 streamlit
-torch=1.9.0+cu111
+torch==1.9.0+cu111
 Wand
 tokenizers==0.9.4
 transformers[torch]==4.2.2
