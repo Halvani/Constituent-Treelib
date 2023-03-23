@@ -17,7 +17,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "benepar==0.2.0",
+    "benepar",
 	"contractions",
 	"fasttext",
 	"nltk",
@@ -25,15 +25,15 @@ dependencies = [
 	"streamlit",
 	"svgling",
 	"ipython",
-	"torch==1.9.0",
-	"tokenizers==0.9.4",
+	"torch",
+	"tokenizers",
     "huspacy",	
-    "nltk==3.7",
-    "pdfkit==1.0.0",
-    "spacy==3.4.1",	
-    "Wand==0.6.10",
-    "tokenizers==0.9.4",
-    "transformers[torch]==4.2.2",
+    "nltk",
+    "pdfkit",
+    "spacy",	
+    "Wand",
+    "tokenizers",
+    "transformers[torch]",
     "protobuf==3.20.3"
 ]
 keywords = [
