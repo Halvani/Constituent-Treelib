@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "constituent_treelib"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="Oren Halvani" }
 ]
 description = "A lightweight Python library for constructing, processing, and visualizing constituent trees."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -18,7 +18,17 @@ classifiers = [
 ]
 dependencies = [
     "benepar==0.2.0",
-    "huspacy==0.6.0",	
+	"contractions",
+	"fasttext",
+	"fasttext_win",
+	"nltk",
+	"pytest",
+	"streamlit",
+	"svgling",
+	"ipython",
+	"torch=1.9.0+cu111",
+	"tokenizers==0.9.4",
+    "huspacy",	
     "nltk==3.7",
     "pdfkit==1.0.0",
     "spacy==3.4.1",	
