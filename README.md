@@ -1,6 +1,8 @@
 # Constituent Treelib (CTL)
 A lightweight Python library for constructing, processing, and visualizing constituent trees.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7765147.svg)](https://doi.org/10.5281/zenodo.7765147)
+
 
 # Description
 CTL is a lightweight Python library that offers you a convenient way to parse sentences into <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent trees</a>, modify them according to their structure, as well as visualize and export them into various [file formats](#Export_visualization). In addition, you can extract phrases according to their phrasal categories (which can be used e.g., as features for various NLP tasks), validate already parsed sentences in bracket notation or convert them back into sentences. 
