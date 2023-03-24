@@ -5,7 +5,7 @@ authors:
     given-names: "Oren"
     orcid: "https://orcid.org/0000-0002-1460-9373"		
 title: "Constituent Treelib - A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees."
-version: 0.0.4
-doi: 10.5281/zenodo.7542311
-date-released: 2023-01-15
+version: 0.0.6
+doi: 10.5281/zenodo.7765147
+date-released: 2023-03-24
 url: "https://github.com/Halvani/constituent-treelib"
