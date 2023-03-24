@@ -249,12 +249,12 @@ If you find this repository helpful, feel free to cite it in your paper or proje
 ```bibtex
 @software{Halvani_Constituent_Treelib_-_2023,
 author = {Halvani, Oren},
-doi = {10.5281/zenodo.7542311},
-month = {1},
+doi = {10.5281/zenodo.7765147},
+month = {3},
 title = {{Constituent Treelib - A Lightweight Python Library for Constructing, Processing, and Visualizing Constituent Trees.}},
 url = {https://github.com/Halvani/constituent-treelib},
-version = {0.0.4},
-year = {2023}
+version = {0.0.6},
+year = {2023
 }
 ```
 Please also give credit to the authors of benepar and <a href="https://github.com/nikitakit/self-attentive-parser#citation">cite their work</a>.
