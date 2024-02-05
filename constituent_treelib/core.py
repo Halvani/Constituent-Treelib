@@ -721,7 +721,7 @@ class ConstituentTree:
 
         for child in tree:
             if isinstance(child, Tree):
-                temp = self._extract_phrases(child, phrasal_category)
+                temp = self._extract_phrases(child, phrasal_category, min_words_in_phrases)
                 if len(temp) > 0:
                     phrases.extend(temp)
 
