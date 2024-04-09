@@ -11,11 +11,22 @@ authors = [
 description = "A lightweight Python library for constructing, processing, and visualizing constituent trees."
 readme = "README.md"
 requires-python = ">=3.6"
+
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+	"Development Status :: 5 - Production/Stable",
+	"Intended Audience :: Developers",
+	"Topic :: Linguistics :: Syntax Tools",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent", 
+	"Programming Language :: Python :: 3.6",
+	"Programming Language :: Python :: 3.7",
+	"Programming Language :: Python :: 3.8",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12"
 ]
+
 dependencies = [
     "benepar",
 	"contractions",
