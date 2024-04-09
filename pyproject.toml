@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "constituent_treelib"
-version = "0.0.6"
+version = "0.0.7"
 authors = [
   { name="Oren Halvani" }
 ]
@@ -19,7 +19,7 @@ classifiers = [
 dependencies = [
     "benepar",
 	"contractions",
-	"fasttext",
+	"langid",
 	"nltk",
 	"pytest",
 	"streamlit",

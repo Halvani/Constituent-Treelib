@@ -4,17 +4,15 @@ import nltk
 import spacy
 import benepar
 import huspacy
-import fasttext
 import contractions
 from nltk import Tree
 from pathlib import Path
 import importlib.resources
 from enum import Enum, auto
-from fasttext import FastText
+from langid.langid import LanguageIdentifier, model
 from typing import List, Dict, Set, Union, Generator
 
 # Package imports
-from . import lang_models
 from .errors import *
 from .export import export_figure
 
@@ -271,6 +269,9 @@ class ConstituentTree:
             raise SentenceError("The given sentence is either none or empty. Please provide a valid sentence in order "
                                 "to instantiate a ConstituentTree object.")
 
+        # Load the language detector model. 
+        self.lang_det = LanguageIdentifier.from_modelstring(model, norm_probs=True)        
+        
         # Detect the language of the given sentence in order to load the correct spaCy and benepar models.
         detected_language = Language.Unsupported
 
@@ -385,9 +386,9 @@ class ConstituentTree:
                                 f"(a string, an nltk.Tree or a BracketedTree) must be provided. Type of the "
                                 f"given sentence: {type(sentence).__name__}.")
 
-    def detect_language(self, text: str, append_proba: bool = False, round_precision: int = 3, top_k_matches: int = 1,
-                        model: FastText._FastText = None):
-        """Detects the language of the given text using FastText.
+    
+    def detect_language(self, text: str, append_proba: bool = False, round_precision: int = 3, top_k_matches: int = 1):
+        """Detects the language of the given text using the pythob lib langid.
 
         Args:
             text: The text whose language is to be detected.
@@ -399,32 +400,25 @@ class ConstituentTree:
             top_k_matches: Number of k most likely detected languages. By default (k=1), the language with the
             highest detection probability is returned.
 
-            model: The desired language detection model.
-
         Returns:
-              The language of the given text (optionally, the top-k detected languages and the detection probability).
-        """
-        # Suppress FastText's annoying deprecation warning.
-        FastText.eprint = lambda x: None
-
-        # Load the default compressed model if no other model is provided. The none-compressed model can be
-        # downloaded from: https://fasttext.cc/docs/en/language-identification.html
-        # A performance comparison of the two models can be found at  https://fasttext.cc/blog/2017/10/02/blog-post.html
-        if not model:
-            with importlib.resources.path(lang_models, "lid.176.ftz") as resource:
-                model = fasttext.load_model(str(resource))
-
+            The language of the given text (optionally, the top-k detected languages and the detection probability).
+        """ 
+        
+        predictions = self.lang_det.rank(text)
+        
+        if top_k_matches > len(predictions):
+            raise ValueError(f"The given 'top_k_matches' exceeds the number of langid's known languages. "
+                            "Consider: top_k_matches < {len(predictions)}.")        
+        
+        predictions = predictions[0:top_k_matches]
         result = []
-        predictions = model.predict([text], k=top_k_matches)
-        predictions = list(zip(*predictions[0], *predictions[1]))
 
         for lang, proba in predictions:
-            lang = lang.replace('__label__', '')
             lang = self.lang_dict[lang] if lang in self.lang_dict else Language.Unsupported
             proba = round(proba, round_precision)
             result.append((lang, proba)) if append_proba else result.append(lang)
-        return result[0] if top_k_matches == 1 else result
-
+        return result[0] if top_k_matches == 1 else result    
+    
     def detect_spacy_langauge(self, nlp: spacy.Language = None):
         """ Translates the language identifier of the internal spaCy pipeline into a corresponding
         ConstituentTreelib.Langauge object.

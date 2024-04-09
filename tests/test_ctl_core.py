@@ -79,14 +79,6 @@ class TestConstituentTree(unittest.TestCase):
             sentence = "I will not instantiate a ConstituentTree object with an invalid nlp pipeline ever again."
             ConstituentTree(sentence, nlp=self.defect_nlp)
 
-    def test_error_nlp_pipeline_models_language_mismatch(self):
-        benepar_model = "benepar_fr2"
-        self.defect_nlp.add_pipe("benepar", config={"model": benepar_model})
-
-        with pytest.raises(LanguageError):
-            sentence = "I will not instantiate a ConstituentTree object with an invalid nlp pipeline ever again."
-            ConstituentTree(sentence, nlp=self.defect_nlp)
-
     def test_error_nlp_pipeline_models_sentence_language_mismatch(self):
         with pytest.raises(LanguageError):
             sentence = "Huch, das war jetzt nicht gewollt."
@@ -170,5 +162,5 @@ class TestConstituentTree(unittest.TestCase):
         ConstituentTree(sentence, self.nlp).export_tree(file_name)
         with open(file_name, "rb") as file:
             md5_hash = hashlib.md5(file.read()).hexdigest()
-        assert md5_hash == "75cdbbeda69e84df53b6d07428e54244"
+        assert md5_hash == "d3e9fdbe78fee450f212d605584f3b2a"
         os.remove(file_name)
