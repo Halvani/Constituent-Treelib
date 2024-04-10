@@ -1,8 +1,19 @@
+
+<div align="center">
+  <p>
+    <a href="#"><img src="https://github.com/Halvani/Constituent-Treelib/blob/main/assets/images/promo_tree.svg" width="456" height="143" alt="Constituent-Treelib logo"/></a>
+  </p>
+
+  <p align="center">
+    <a href="https://pypi.org/project/constituent-treelib/"><img src="https://img.shields.io/pypi/v/constituent-treelib?style=flat-square" /></a>
+    <a href="https://github.com/Halvani/Constituent-Treelib/actions/workflows/python-package.yml"><img src="https://github.com/Halvani/Constituent-Treelib/actions/workflows/python-package.yml/badge.svg"/></a>
+    <a href="https://doi.org/10.5281/zenodo.7765146"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7765146.svg"/></a>
+  </p>
+</div>
+<br><br>
+
 # Constituent Treelib (CTL)
 A lightweight Python library for constructing, processing, and visualizing constituent trees.
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7765147.svg)](https://doi.org/10.5281/zenodo.7765147)
-
 
 # Description
 CTL is a lightweight Python library that offers you a convenient way to parse sentences into <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent trees</a>, modify them according to their structure, as well as visualize and export them into various [file formats](#Export_visualization). In addition, you can extract phrases according to their phrasal categories (which can be used e.g., as features for various NLP tasks), validate already parsed sentences in bracket notation or convert them back into sentences. 
