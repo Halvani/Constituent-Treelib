@@ -1,7 +1,7 @@
 
 <div align="center">
   <p>
-    <a href="#"><img src="https://github.com/Halvani/Constituent-Treelib/blob/main/assets/images/promo_tree.svg" width="456" height="143" alt="Constituent-Treelib logo"/></a>
+    <a href="#"><img src="https://github.com/Halvani/Constituent-Treelib/blob/main/assets/images/promo_tree.svg" alt="Constituent-Treelib logo"/></a>
   </p>
 
   <p align="center">
