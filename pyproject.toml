@@ -15,7 +15,6 @@ requires-python = ">=3.6"
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
-	"Topic :: Linguistics :: Syntax Tools",
 	"License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent", 
 	"Programming Language :: Python :: 3.6",
