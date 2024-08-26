@@ -15,7 +15,7 @@
 # Constituent Treelib (CTL)
 A lightweight Python library for constructing, processing, and visualizing constituent trees.
 
-# Description
+## Description
 CTL is a lightweight Python library that offers you a convenient way to parse sentences into <a href="https://en.wikipedia.org/wiki/Constituent_(linguistics)">constituent trees</a>, modify them according to their structure, as well as visualize and export them into various [file formats](#Export_visualization). In addition, you can extract phrases according to their phrasal categories (which can be used e.g., as features for various NLP tasks), validate already parsed sentences in bracket notation or convert them back into sentences. 
 
 CTL is built on top of <a href="https://github.com/nikitakit/self-attentive-parser">**benepar**</a> (*Berkeley Neural Parser*) as well as the two well-known NLP frameworks <a href="https://spacy.io">**spaCy**</a> and <a href="https://github.com/nltk/nltk">**NLTK**</a>. Here, spaCy is used for tokenization and sentence segmentation, while benepar performs the actual parsing of the sentences. NLTK, on the other hand, provides the fundamental data structure for storing and processing the parsed sentences. 
@@ -78,14 +78,14 @@ Regardless of which format is considered, the underlying representation[^1] show
 - Hierarchical structure of the phrases: ``S``, ``VP``, ``NP`` and ``PP``
 
 
-# Applications
+## Applications
 Constituent trees offer a wide range of applications including:
 - Analysis and comparison of sentence structures between different languages for (computational) linguists 
 - Extracting phrasal features for certain NLP tasks (e.g., <a href="https://aclanthology.org/W19-5203">Machine Translation</a>, <a href="https://ieeexplore.ieee.org/document/6693511">Information Extraction</a>, <a href="https://aclanthology.org/2020.tacl-1.22">Paraphrasing</a>, <a href="https://github.com/andreasvc/authident">Stylometry</a>, <a href="https://aclanthology.org/P12-2034">Deception Detection</a> or <a href="https://dl.acm.org/doi/10.1145/2482513.2482522">Natural Language Watermarking</a>)
 - Using the resulting representations as an input to train <a href="https://distill.pub/2021/gnn-intro/">GNNs</a> for specific tasks (e.g., <a href="https://doi.org/10.1093/database/baac070">Chemical–Drug Relation Extraction</a> or <a href="https://aclanthology.org/2020.emnlp-main.322">Semantic Role Labeling</a>)
 
 
-# Features
+## Features
 - Easy construction of constituent trees from raw or already processed sentences
 - Converting parsed constituent trees back into sentences
 - Convenient export of tree visualizations into various [file formats](#Export_visualization)
@@ -97,11 +97,11 @@ Constituent trees offer a wide range of applications including:
 - Extensively documented source code
 
 
-# No Code Demo
+## No Code Demo
 In case you just want to play around with CTL, there is a minimally functional <a href="https://github.com/streamlit/streamlit">Streamlit</a> app that will be gradually extended. To run the demo, please first install Streamlit via: `pip install streamlit`. Afterwards, you can call the app from the command line as follows: `streamlit run ctl_app.py`
 
 
-# Installation
+## Installation
 The easiest way to install CTL is to use pip, where you can choose between (1) the PyPI[^2] repository and (2) this repository. 
 
 - (1) ```pip install constituent-treelib```
@@ -110,7 +110,7 @@ The easiest way to install CTL is to use pip, where you can choose between (1) t
 
 The latter will pull and install the latest commit from this repository as well as the required Python dependencies. 
 
-## Non-Python dependencies:
+### Non-Python dependencies:
 CTL also relies on two open-source tools to export constituent trees into various file formats:
 
 - To export the constituent tree into a PDF, the command line tool **<a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a>** is required. Once downloaded and installed, the path to the wkhtmltopdf binary must be passed to the export function. 
@@ -118,11 +118,11 @@ CTL also relies on two open-source tools to export constituent trees into variou
 - To export the constituent tree into the file formats JPG, PNG, GIF, BMP, EPS, PSD, TIFF and YAML, the software suite **<a href="https://imagemagick.org/script/download.php#windows">ImageMagick</a>** is required.
 
 
-# Quickstart
+## Quickstart
 Below you can find several examples of the core functionality of CTL. More examples can be found in the <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a>. 
 
 
-## Creating an NLP pipeline
+### Creating an NLP pipeline
 To instantiate a ``ConstituentTree`` object, CTL requires a spaCy-based NLP pipeline that incorporates a benepar component. Although you can set up this pipeline yourself, it is recommended (and more convenient) to let CTL do it for you automatically via the ``create_pipeline()`` method. Given the desired [language](#Available_models_and_languages), this method creates the NLP pipeline and also downloads[^3] the corresponding spaCy and benepar models, if requested. The following code shows an example of this: 
 ```python
 from constituent_treelib import ConstituentTree, BracketedTree, Language, Structure
@@ -144,7 +144,7 @@ nlp = ConstituentTree.create_pipeline(language, spacy_model_size)
 >>> [nltk_data] Unzipping models\benepar_en3.zip.
 ```
 
-## Define a sentence
+### Define a sentence
 Next, we instantiate a ``ConstituentTree`` object and pass it the created NLP pipeline along with a sentence to parse, e.g. the memorable quote *"You must construct additional pylons!"*[^4]. Rather than a raw sentence, ``ConstituentTree`` also accepts an already parsed sentence wrapped as a BracketedTree object, or alternatively in the form of an NLTK tree. The following example illustrates all three options:  
 ```python
 # Raw sentence
@@ -162,7 +162,7 @@ sentence = Tree('S', [Tree('NP', [Tree('PRP', ['You'])]), Tree('VP', [Tree('MD',
 tree = ConstituentTree(sentence, nlp)
 ```
 
-## Modified tree structure
+### Modified tree structure
 CTL allows you to modify the structure of the tree by either:
 
 - Eliminating **inner postag nodes** (tree contains now phrasal categories as inner nodes and tokens as leaves)
@@ -180,7 +180,7 @@ The result...
 
 Modified tree structures offer several benefits. One of them, for example, is saving space when using the visualizations in papers. Eliminating the inner postag nodes (shown on the right) reduces the tree height from level 5 to 4. Another useful application arises from the elimination of token leaves, which will be discussed in more detail in the following section.
 
-## Extract phrases
+### Extract phrases
 Once we have created ``tree``, we can now extract phrases according to given <a href="https://dkpro.github.io/dkpro-core/releases/2.2.0/docs/tagset-reference.html">phrasal categories</a> e.g., verb phrases:  
 ```python
 phrases = tree.extract_all_phrases()
@@ -216,7 +216,7 @@ This is especially helpful when investigating the writing style of authors.
 
 
 <a name="Export_visualization"></a>
-## Export the tree
+### Export the tree
 CTL offers you to export a constituent tree into various file formats, which are listed below. Most of these formats result in a visualization of the tree, while the remaining file formats are used for data exchange. 
 
 | Extension | Description | Output |
@@ -251,12 +251,20 @@ In the case of raster/vector images, CTL automatically removes unnecessary margi
 CTL currently supports eight languages: English, German, French, Polish, Hungarian, Swedish, Chinese and Korean. The performance of the respective models can be looked up in the <a href="https://github.com/nikitakit/self-attentive-parser#available-models">benepar repository</a>. 
 
 
-# License
+## CTL in the Research Landscape
+CTL has been used in several research works that have appeared at renowned conferences such as ICLR 2024 and ACL 2024:
+
+- Yuang Li, Jiaxin Guo, Min Zhang, Ma Miaomiao, Zhiqiang Rao, Weidong Zhang, Xianghui He, Daimeng Wei, and Hao Yang. 2024. **[Pause-Aware Automatic Dubbing using LLM and Voice Cloning](https://aclanthology.org/2024.iwslt-1.2/)**. In Proceedings of the 21st International Conference on Spoken Language Translation (IWSLT 2024), pages 12–16, Bangkok, Thailand (in-person and online). Association for Computational Linguistics.
+
+- Tanvir Mahmud, D. Marculescu, **[Weakly-supervised Audio Separation via Bi-modal Semantic Similarity](https://arxiv.org/abs/2404.01740#)**, in: The Twelfth International Conference on Learning Representations, 2024. 
+
+
+## License
 The code and the <a href="https://github.com/Halvani/Constituent-Treelib/blob/main/Constituent_TreeLib_Quickstart.ipynb">jupyter notebook demo</a> of CTL are released under the MIT License. See <a href="https://github.com/Halvani/constituent_treelib/blob/main/LICENSE">LICENSE</a> for further details.
 
 
-# Citation
-If you find this repository helpful, feel free to cite it in your paper or project: 
+## Citation
+If you find this repository helpful, please invest a few minutes and cite it in your paper/project:
 ```bibtex
 @software{Halvani_Constituent_Treelib:2024,
 	author = {Halvani, Oren},
@@ -268,7 +276,7 @@ If you find this repository helpful, feel free to cite it in your paper or proje
 	year = {2024}
 }
 ```
-Please also give credit to the authors of benepar and <a href="https://github.com/nikitakit/self-attentive-parser#citation">cite their work</a>.
+Please also give credit to the authors of benepar and <a href="https://github.com/nikitakit/self-attentive-parser#citation">cite their work</a>. In science, the principle is: **give and take**..
 
 
 [^1]: Note, if you are not familiar with the bracket labels of constituent trees, have a look at the following <a href="https://gist.github.com/nlothian/9240750">Gist</a> 
