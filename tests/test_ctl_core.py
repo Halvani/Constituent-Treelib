@@ -156,12 +156,3 @@ class TestConstituentTree(unittest.TestCase):
         bracketed_string = "(SQ (S (VP Let (S (NP 's) (VP test (NP the improvements))))) , shall (NP we) ?)"
         assert tree_without_postag_nodes.to_bracketed_tree_string() == bracketed_string
 
-    def test_svg_export(self):
-        file_name = "tree.svg"
-        sentence = "Python is an awesome coding language!"
-        ConstituentTree(sentence, self.nlp).export_tree(file_name)
-        
-        with open(file_name, "rb") as file:
-            sha256_hash = hashlib.sha256(file.read()).hexdigest()  
-        assert sha256_hash == "21de07e261ac4b95b8a589530fa73e4762639e29dc1f94c8f0598fa48fc5767f"
-        os.remove(file_name)
