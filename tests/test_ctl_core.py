@@ -160,7 +160,8 @@ class TestConstituentTree(unittest.TestCase):
         file_name = "tree.svg"
         sentence = "Python is an awesome coding language!"
         ConstituentTree(sentence, self.nlp).export_tree(file_name)
+        
         with open(file_name, "rb") as file:
-            md5_hash = hashlib.md5(file.read()).hexdigest()
-        assert md5_hash == "d3e9fdbe78fee450f212d605584f3b2a"
+            sha256_hash = hashlib.sha256(file.read()).hexdigest()  
+        assert sha256_hash == "21de07e261ac4b95b8a589530fa73e4762639e29dc1f94c8f0598fa48fc5767f"
         os.remove(file_name)
