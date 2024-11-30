@@ -4,22 +4,19 @@ build-backend = "hatchling.build"
 
 [project]
 name = "constituent_treelib"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Oren Halvani" }
 ]
 description = "A lightweight Python library for constructing, processing, and visualizing constituent trees."
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.9"
 
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
 	"License :: OSI Approved :: MIT License",
-	"Operating System :: OS Independent", 
-	"Programming Language :: Python :: 3.6",
-	"Programming Language :: Python :: 3.7",
-	"Programming Language :: Python :: 3.8",
+	"Operating System :: OS Independent",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
 	"Programming Language :: Python :: 3.11",
