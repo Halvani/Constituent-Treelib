@@ -6,7 +6,7 @@ import pdfkit
 from pathlib import Path
 from nltk import Tree
 from nltk.draw.tree import TreeView
-from nltk.tree.prettyprinter import TreePrettyPrinter
+from nltk.treeprettyprinter import TreePrettyPrinter
 from typing import Dict
 
 
