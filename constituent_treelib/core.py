@@ -14,7 +14,6 @@ from typing import List, Dict, Set, Union, Generator
 
 # Package imports
 from .errors import *
-from .export import export_figure
 
 
 class Structure(Enum):
@@ -861,7 +860,7 @@ class ConstituentTree:
             verbose: If set to True, a short message about whether the output file creation was
             successful is displayed.
         """
-
+        from .export import export_figure
         export_figure(self.nltk_tree,
                       destination_filepath=destination_filepath,
                       wkhtmltopdf_bin_filepath=wkhtmltopdf_bin_filepath,
